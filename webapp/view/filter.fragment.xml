@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleConfirm">
+		
+		<filterItems>
+			<ViewSettingsFilterItem text="Orders" key="1">
+				<items>
+					<ViewSettingsItem text="Only Shipped Orders" key="1a" />
+					<ViewSettingsItem text="Only Orders without Shipment" key="1b" />
+				</items>
+			</ViewSettingsFilterItem>
+			
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

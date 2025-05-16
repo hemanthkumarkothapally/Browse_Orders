@@ -1,0 +1,135 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.db.oders.orderdetails",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.4",
+      "toolsId": "ed3cd412-73c0-4006-96b7-c835c246e716"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/v2/northwind/northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Browse_Orders-Display": {
+          "semanticObject": "Browse_Orders",
+          "action": "Display",
+          "title": "{{Browse_Orders-Display.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.135.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.db.oders.orderdetails.i18n.i18n"
+        }
+      },
+      "orderdetailsmodel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/employees.json"
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.db.oders.orderdetails.view",
+        "async": true,
+        "viewPath": "com.db.oders.orderdetails.view"
+      },
+      "routes": [
+        {
+          "name": "RouteOrderDetails",
+          "pattern": ":?query:",
+          "target": [
+            "TargetOrderDetails"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetOrderDetails": {
+          "id": "OrderDetails",
+          "name": "OrderDetails"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.db.oders.orderdetails.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "comdbodersorderdetails"
+  }
+}

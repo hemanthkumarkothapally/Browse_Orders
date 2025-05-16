@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleConfirm"
+		sortItems="{
+        path: '/OrderID',
+        templateShareable: false
+    }">
+		<sortItems>
+    <ViewSettingsItem text="Ascending" key="1" />
+    <ViewSettingsItem text="Descending" key="2" />
+</sortItems>
+		<groupItems>
+			<ViewSettingsItem text="Group by Customer" key="1" />
+			<ViewSettingsItem text="Group by Order Period" key="2" />
+			<ViewSettingsItem text="Group by Shipped Period" key="3" />
+            
+		</groupItems>
+	
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
