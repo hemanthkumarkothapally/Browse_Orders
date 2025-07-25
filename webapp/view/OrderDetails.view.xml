@@ -147,10 +147,6 @@
 
                             <layout:VerticalLayout>
                                 <ObjectAttribute title="Price" />
-                                <!-- <ObjectStatus
-                                    text="{orderdetailsmodel>/totalproductssum}"
-                                    state="Success"
-                                /> -->
                                 <ObjectNumber
                                     id="someTextId"
                                     number=""
